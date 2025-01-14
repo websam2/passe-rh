@@ -1,101 +1,242 @@
-import Image from "next/image";
+"use client";
+
+import { ContentCard } from "@/components/content-card";
+import { CourseCard } from "@/components/course-card";
+import { CTASection } from "@/components/cta-section";
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
+import { JobCard } from "@/components/job-card";
+import { StatsBanner } from "@/components/stats-banner";
+import {
+	Carousel,
+	CarouselContent,
+	CarouselItem,
+	CarouselNext,
+	CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useState } from "react";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+	const [activeTab, setActiveTab] = useState<"curso" | "conteudo">("curso");
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+	const jobs = [
+		{
+			title: "Título da vaga",
+			company: "Empresa",
+			location: "São Paulo",
+			isRemote: true,
+		},
+		{
+			title: "Título da vaga",
+			company: "Stefanini Group",
+			location: "Rio de Janeiro",
+			isRemote: true,
+		},
+		{
+			title: "Título da vaga",
+			company: "Empresa",
+			location: "São Paulo",
+			isRemote: false,
+		},
+		{
+			title: "Título da vaga",
+			company: "Empresa",
+			location: "Curitiba",
+			isRemote: true,
+		},
+		{
+			title: "Título da vaga",
+			company: "Stefanini Group",
+			location: "Belo Horizonte",
+			isRemote: true,
+		},
+		{
+			title: "Título da vaga",
+			company: "Empresa",
+			location: "São Paulo",
+			isRemote: true,
+		},
+	];
+
+	const courses = [
+		{
+			title: "Título da Aula",
+			description:
+				"Descrição",
+			imageUrl:
+				"https://placehold.co/300x100?text=banner",
+			lessonNumber: 1,
+		},
+		{
+			title: "Título da Aula",
+			description:
+				"Descrição",
+			imageUrl:
+				"https://placehold.co/300x100?text=banner",
+			lessonNumber: 2,
+		},
+		{
+			title: "Título da Aula",
+			description: "Descrição",
+			imageUrl:
+				"https://placehold.co/300x100?text=banner",
+			lessonNumber: 3,
+		},
+		{
+			title: "Título da Aula",
+			description:
+				"Descrição",
+			imageUrl:
+				"https://placehold.co/300x100?text=banner",
+			lessonNumber: 4,
+		},
+    {
+			title: "Título da Aula",
+			description:
+				"Descrição",
+			imageUrl:
+				"https://placehold.co/300x100?text=banner",
+			lessonNumber: 5,
+		},
+    {
+			title: "Título da Aula",
+			description:
+				"Descrição",
+			imageUrl:
+				"https://placehold.co/300x100?text=banner",
+			lessonNumber: 6,
+		},
+    {
+			title: "Título da Aula",
+			description:
+				"Descrição",
+			imageUrl:
+				"https://placehold.co/300x100?text=banner",
+			lessonNumber: 7,
+		},
+	];
+
+	const contents = [
+		{
+			title: "Título do Conteúdo",
+			description: "Descrição",
+			imageUrl:
+				"https://placehold.co/300x100?text=banner",
+		},
+		{
+			title: "Título do Conteúdo",
+			description:
+				"Descrição",
+			imageUrl:
+				"https://placehold.co/300x100?text=banner",
+		},
+		{
+			title: "Título do Conteúdo",
+			description:
+				"Descrição",
+			imageUrl:
+				"https://placehold.co/300x100?text=banner",
+		},
+		{
+			title: "Título do Conteúdo",
+			description:
+				"Descrição",
+			imageUrl:
+				"https://placehold.co/300x100?text=banner",
+		},
+    {
+			title: "Título do Conteúdo",
+			description:
+				"Descrição",
+			imageUrl:
+				"https://placehold.co/300x100?text=banner",
+		},
+    {
+			title: "Título do Conteúdo",
+			description:
+				"Descrição",
+			imageUrl:
+				"https://placehold.co/300x100?text=banner",
+		},
+    {
+			title: "Título do Conteúdo",
+			description:
+				"Descrição",
+			imageUrl:
+				"https://placehold.co/300x100?text=banner",
+		},
+	];
+
+	return (
+		<div className="min-h-screen flex flex-col">
+			<Header />
+			<main>
+				<StatsBanner />
+				<CTASection />
+
+				<section className="container mx-auto py-12">
+					<h2 className="text-2xl font-bold mb-6">Sugestões de vagas</h2>
+					<Carousel className="relative">
+						<CarouselContent>
+							{jobs.map((job, index) => (
+								<CarouselItem
+									key={index}
+									className="basis-[300px] md:basis-[350px]"
+								>
+									<JobCard {...job} className="h-[250px]" />
+								</CarouselItem>
+							))}
+						</CarouselContent>
+						<CarouselPrevious className="absolute -left-4" />
+						<CarouselNext className="absolute -right-4" />
+					</Carousel>
+				</section>
+
+				<section className="container mx-auto py-12">
+					<Tabs defaultValue="curso" className="w-full">
+						<TabsList className="mb-8">
+							<TabsTrigger value="curso">Curso</TabsTrigger>
+							<TabsTrigger value="conteudo">Conteúdo</TabsTrigger>
+						</TabsList>
+
+						<TabsContent value="curso">
+							<Carousel>
+								<CarouselContent>
+									{courses.map((course, index) => (
+										<CarouselItem
+											key={index}
+											className="basis-[300px] md:basis-[350px]"
+										>
+											<CourseCard {...course} />
+										</CarouselItem>
+									))}
+								</CarouselContent>
+								<CarouselPrevious className="absolute -left-4" />
+								<CarouselNext className="absolute -right-4" />
+							</Carousel>
+						</TabsContent>
+
+						<TabsContent value="conteudo">
+							<Carousel>
+								<CarouselContent>
+									{contents.map((content, index) => (
+										<CarouselItem
+											key={index}
+											className="basis-[300px] md:basis-[350px]"
+										>
+											<ContentCard {...content} />
+										</CarouselItem>
+									))}
+								</CarouselContent>
+								<CarouselPrevious className="absolute -left-4" />
+								<CarouselNext className="absolute -right-4" />
+							</Carousel>
+						</TabsContent>
+					</Tabs>
+				</section>
+			</main>
+			<Footer />
+		</div>
+	);
 }
