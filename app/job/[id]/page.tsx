@@ -8,7 +8,7 @@ import { ChevronLeft, Copy, Facebook, Instagram, Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function JobPage({ params }: { params: { id: string } }) {
+export default function JobPage() {
 	const copyToClipboard = () => {
 		navigator.clipboard.writeText(window.location.href);
 		toast({

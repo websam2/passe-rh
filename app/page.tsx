@@ -15,11 +15,8 @@ import {
 	CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useState } from "react";
 
 export default function Home() {
-	const [activeTab, setActiveTab] = useState<"curso" | "conteudo">("curso");
-
 	const jobs = [
 		{
 			title: "Título da vaga",
@@ -62,57 +59,44 @@ export default function Home() {
 	const courses = [
 		{
 			title: "Título da Aula",
-			description:
-				"Descrição",
-			imageUrl:
-				"https://placehold.co/300x100?text=banner",
+			description: "Descrição",
+			imageUrl: "https://placehold.co/300x100?text=banner",
 			lessonNumber: 1,
 		},
 		{
 			title: "Título da Aula",
-			description:
-				"Descrição",
-			imageUrl:
-				"https://placehold.co/300x100?text=banner",
+			description: "Descrição",
+			imageUrl: "https://placehold.co/300x100?text=banner",
 			lessonNumber: 2,
 		},
 		{
 			title: "Título da Aula",
 			description: "Descrição",
-			imageUrl:
-				"https://placehold.co/300x100?text=banner",
+			imageUrl: "https://placehold.co/300x100?text=banner",
 			lessonNumber: 3,
 		},
 		{
 			title: "Título da Aula",
-			description:
-				"Descrição",
-			imageUrl:
-				"https://placehold.co/300x100?text=banner",
+			description: "Descrição",
+			imageUrl: "https://placehold.co/300x100?text=banner",
 			lessonNumber: 4,
 		},
-    {
+		{
 			title: "Título da Aula",
-			description:
-				"Descrição",
-			imageUrl:
-				"https://placehold.co/300x100?text=banner",
+			description: "Descrição",
+			imageUrl: "https://placehold.co/300x100?text=banner",
 			lessonNumber: 5,
 		},
-    {
+		{
 			title: "Título da Aula",
-			description:
-				"Descrição",
-			imageUrl:
-				"https://placehold.co/300x100?text=banner",
+			description: "Descrição",
+			imageUrl: "https://placehold.co/300x100?text=banner",
 			lessonNumber: 6,
 		},
-    {
+		{
 			title: "Título da Aula",
-			description:
-				"Descrição",
-			imageUrl:
-				"https://placehold.co/300x100?text=banner",
+			description: "Descrição",
+			imageUrl: "https://placehold.co/300x100?text=banner",
 			lessonNumber: 7,
 		},
 	];
@@ -121,50 +105,37 @@ export default function Home() {
 		{
 			title: "Título do Conteúdo",
 			description: "Descrição",
-			imageUrl:
-				"https://placehold.co/300x100?text=banner",
+			imageUrl: "https://placehold.co/300x100?text=banner",
 		},
 		{
 			title: "Título do Conteúdo",
-			description:
-				"Descrição",
-			imageUrl:
-				"https://placehold.co/300x100?text=banner",
+			description: "Descrição",
+			imageUrl: "https://placehold.co/300x100?text=banner",
 		},
 		{
 			title: "Título do Conteúdo",
-			description:
-				"Descrição",
-			imageUrl:
-				"https://placehold.co/300x100?text=banner",
+			description: "Descrição",
+			imageUrl: "https://placehold.co/300x100?text=banner",
 		},
 		{
 			title: "Título do Conteúdo",
-			description:
-				"Descrição",
-			imageUrl:
-				"https://placehold.co/300x100?text=banner",
+			description: "Descrição",
+			imageUrl: "https://placehold.co/300x100?text=banner",
 		},
-    {
+		{
 			title: "Título do Conteúdo",
-			description:
-				"Descrição",
-			imageUrl:
-				"https://placehold.co/300x100?text=banner",
+			description: "Descrição",
+			imageUrl: "https://placehold.co/300x100?text=banner",
 		},
-    {
+		{
 			title: "Título do Conteúdo",
-			description:
-				"Descrição",
-			imageUrl:
-				"https://placehold.co/300x100?text=banner",
+			description: "Descrição",
+			imageUrl: "https://placehold.co/300x100?text=banner",
 		},
-    {
+		{
 			title: "Título do Conteúdo",
-			description:
-				"Descrição",
-			imageUrl:
-				"https://placehold.co/300x100?text=banner",
+			description: "Descrição",
+			imageUrl: "https://placehold.co/300x100?text=banner",
 		},
 	];
 
